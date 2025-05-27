@@ -19,7 +19,7 @@ import App15 from "./components/App15";
 import App16 from "./components/App16";
 import App17 from "./components/App17";
 import App18 from "./components/App18";
-import App18 from "./components/App19";
+import App19 from "./components/App19";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./App.css";
