@@ -1,43 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
+import { useMemo, useState } from "react";
 
-function App18() {
-  const [score, setScore] = useState(1);
-  const [outs, setOuts] = useState(0);
-  const [status, setStatus] = useState("");
-
-  const addRun = () => {
-    if (outs < 11) {
-      setScore(prev => prev + 1);
-      setStatus("Nice shot!");
+export default function App18() {
+  const [count, setCount] = useState(0);
+  const [flag, setFlag] = useState(10);
+  
+  const f1 = () => {
+    let i;
+    for (i = 1; i < flag ** 2; i++) {
+      //complex calculation
     }
+    console.log("F1 function called");
+    return i;
   };
-
-  const addWicket = () => {
-    if (outs < 11) {
-      const newOuts = outs + 1;
-      setOuts(newOuts);
-      if (newOuts === 11) {
-        setStatus("All out! Match finished.");
-      } else {
-        setStatus("Oops! That's a wicket.");
-      }
-    }
-  };
-
+  
+  //   const result = f1();
+  const result = useMemo(() => f1(), [flag]);
+  
   return (
     <div>
-      <h2>Live Cricket Match</h2>
-      <div>
-        <button onClick={addRun}>Add Run</button>
-        <button onClick={addWicket}>Add Wicket</button>
-      </div>
-      <div>
-        <p>Total Runs: {score}</p>
-        <p>Total Wickets: {outs}</p>
-        <p>{status}</p>
-      </div>
+      <h1>App18</h1>
+      <h2>useMemo hook</h2>
+      <p>
+        <button onClick={() => setCount(count + 1)}>Count:{count}</button>
+      </p>
+      <p>
+        <button onClick={() => setFlag(flag + 1)}>Flag:{flag}</button>
+      </p>
+      <hr />
+      <p>Result:{result}</p>
     </div>
   );
 }
-
-export default App18;

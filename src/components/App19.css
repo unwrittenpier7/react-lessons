@@ -1,0 +1,32 @@
+.scoreboard-container {
+  text-align: center;
+}
+
+.scoreboard-heading {
+  color: #0d67c1;
+  margin-bottom: 20px;
+}
+
+.scoreboard-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.scoreboard-box {
+  padding: 20px;
+  border: 2px solid #640d0d;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.message-box h2 {
+  color: rgb(34, 205, 71);
+}
+
+button {
+  padding: 8px 8px;
+  margin: 5px;
+  cursor: pointer;
+}
