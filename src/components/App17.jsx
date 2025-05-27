@@ -1,32 +1,22 @@
-import React, { useEffect } from "react";
-import { useRef, useState } from "react";
-export default function App16() {
-  const [num, setNum] = useState(0);
-  const prevNum = useRef();
-  const msgRef = useRef();
-  useEffect(() => {
-    prevNum.current = num;
-  }, [num]);
-
-  if (prevNum.current) {
-    if (prevNum.current > num) {
-      msgRef.current.style.color = "red";
-    } else {
-      msgRef.current.style.color = "green";
-    }
-  }
-
+import React from "react";
+import Greet from "./Greet";
+import { useState } from "react";
+export default function App17() {
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState();
+  const increment = () => {
+    setCount((prev) => prev + 1);
+  };
   return (
     <div>
-      <h1>App16</h1>
-      <h2>useRef to store previous value</h2>
+      <h1>App17</h1>
+      <h2>React Memo - for better performance</h2>
       <p>
-        <input type="number" onChange={(e) => setNum(e.target.value)} />
+        <input type="text" onChange={(e) => setName(e.target.value)} />
       </p>
-      <hr />
-      <p>Current Number:{num}</p>
-      <p>Previous Number:{prevNum.current}</p>
-      <h3 ref={msgRef}>Hello World</h3>
+      <Greet name={name} />
+      <p>{count}</p>
+      <button onClick={increment}>Update Count</button>
     </div>
   );
 }
